@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2026 at 08:04 PM
+-- Generation Time: Oct 07, 2026 at 03:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -84,7 +84,7 @@ INSERT INTO `customer_accounts` (`id`, `account_number`, `customer_name`, `addre
 --
 
 CREATE TABLE `users` (
-  `id` int(100) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -118,22 +118,12 @@ CREATE TABLE `user_accounts` (
 --
 
 INSERT INTO `user_accounts` (`id`, `username`, `password`) VALUES
-(1, 'kali', 'kali');
+(1, 'admin', 'admin'),
+(2, 'kali', 'kali');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `customer_accounts`
---
-ALTER TABLE `customer_accounts`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `account_number` (`account_number`),
-  ADD KEY `idx_account_number` (`account_number`),
-  ADD KEY `idx_status` (`status`),
-  ADD KEY `idx_connection_type` (`connection_type`),
-  ADD KEY `idx_customer_name` (`customer_name`);
 
 --
 -- Indexes for table `users`
@@ -153,16 +143,16 @@ ALTER TABLE `user_accounts`
 --
 
 --
--- AUTO_INCREMENT for table `customer_accounts`
---
-ALTER TABLE `customer_accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_accounts`
+--
+ALTER TABLE `user_accounts`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
